@@ -38,7 +38,7 @@ cp:
     cookieMaxAge: 1800
 ---
 server:
-  port: 8086
+  port: 8088
 spring:
   profiles: test
   application:
@@ -54,13 +54,12 @@ mybatis:
 eureka:
   client:
     service-url:
-      defaultZone: http://172.24.202.77:10086/eureka
+      defaultZone: http://172.24.202.77:10086/eureka,http://172.24.202.79:10087/eureka
     registry-fetch-interval-seconds: 10
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
     lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
     prefer-ip-address: true
-    ip-address: 172.24.202.79
     instance-id: ${spring.application.name}:${server.port}
 cp:
   jwt:
